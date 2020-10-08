@@ -3,8 +3,10 @@ steps:
     args: ['install', '.']
     env: ['PROJECT_ROOT=desafioci']
   - name: 'gcr.io/cloud-builders/go'
-    args: ['test', 'desafioci']
-    env: ['PROJECT_ROOT=desafioci']
+  args: ['test', 'desafioci']
+  env: ['PROJECT_ROOT=desafioci']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--tag=gcr.io/$PROJECT_ID/desafioci', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/desafioci', '.']
+  - name: 'gcr.io/cloud-builders/go'
+  args: ['run','main.go']
 images: ['gcr.io/$PROJECT_ID/desafioci']
