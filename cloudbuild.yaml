@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/$PROJECT_ID/go'
+    args: ['install', '.']
+    env: ['PROJECT_ROOT=desafioci']
+  - name: 'gcr.io/$PROJECT_ID/go'
+    args: ['test', 'desafioci']
+    env: ['PROJECT_ROOT=desafioci']
+  - name: 'gcr.io/$PROJECT_ID/docker'
+    args: ['build', '--tag=gcr.io/$PROJECT_ID/desafioci', '.']
+images: ['gcr.io/$PROJECT_ID/desafioci']
