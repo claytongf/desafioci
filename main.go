@@ -1,11 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
-    fmt.Println(soma(5, 5))
+	http.HandleFunc("/", HelloHandler)
+	http.ListenAndServe(":8000", nil)
 }
 
-func soma(num1 int, num2 int) int {
-    return num1 + num2
+//HelloHandler imprime
+func HelloHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, greeting("Code.education Rocks!"))
+}
+
+func greeting(str string) string {
+	return "<b>" + str + "</b>"
 }
