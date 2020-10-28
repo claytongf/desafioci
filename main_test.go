@@ -7,7 +7,7 @@ import (
 
 func TestGreeting(t *testing.T) {
 	got := greeting("Code.education Rocks!")
-	want := "<b>Code.education Rocks!</b>"
+	want := "Code.education Rocks!"
 
 	if got != want {
 		t.Errorf("greeting() \n got: %v \n want: %v", got, want)
