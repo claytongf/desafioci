@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -11,7 +10,5 @@ func TestGreeting(t *testing.T) {
 
 	if got != want {
 		t.Errorf("greeting() \n got: %v \n want: %v", got, want)
-	} else {
-		fmt.Println(got)
 	}
 }
