@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+    name: desafio-k8s
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: desafio-k8s
+    template:
+        metadata:
+            labels:
+                app: desafio-k8s
+        spec:
+            containers:
+            - name: claytongf/codeeducation
+              image: claytongf/codeeducation:latest
+              ports:
+              - containerPort: 80

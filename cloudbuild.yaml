@@ -6,7 +6,7 @@ steps:
     args: ['test', 'desafioci']
     env: ['PROJECT_ROOT=desafioci']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--tag=gcr.io/$PROJECT_ID/desafioci', '.']
+    args: ['build', '-d', '--tag=gcr.io/$PROJECT_ID/desafioci', '.']
   - name: 'gcr.io/cloud-builders/go'
     args: ['run','main.go']
     env: ['PROJECT_ROOT=desafioci']
