@@ -6,8 +6,11 @@ steps:
     args: ['test', 'desafioci']
     env: ['PROJECT_ROOT=desafioci']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-d', '--tag=gcr.io/$PROJECT_ID/desafioci', '.']
-  - name: 'gcr.io/cloud-builders/go'
-    args: ['run','main.go']
-    env: ['PROJECT_ROOT=desafioci']
+    args: ['build', '--tag=gcr.io/$PROJECT_ID/desafioci', '.']
+  # - name: 'gcr.io/cloud-builders/go'
+  #   args: ['run','main.go']
+  #   env: ['PROJECT_ROOT=desafioci']
+  - id: "Rodando docker-compose"
+    name: 'docker/compose'
+    args: ['-f', 'docker-compose.cloudbuild.yaml','up','-d']
 images: ['gcr.io/$PROJECT_ID/desafioci']
