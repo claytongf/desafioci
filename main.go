@@ -2,19 +2,25 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"net/http"
 )
 
-func main() {
-	http.HandleFunc("/", HelloHandler)
-	http.ListenAndServe(":8000", nil)
-}
+func handler(w http.ResponseWriter, r *http.Request) {
+	var x float64 = 0.0001
 
-//HelloHandler imprime
-func HelloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, greeting("Code.education Rocks!"))
+	for i := 0; i < 1000000; i++ {
+		x += math.Sqrt(x)
+	}
+
+	fmt.Fprint(w, greeting("Code.education Rocks!"))
 }
 
 func greeting(str string) string {
 	return "<b>" + str + "</b>"
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8000", nil)
 }

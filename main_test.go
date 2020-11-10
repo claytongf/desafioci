@@ -1,14 +1,15 @@
 package main
 
 import (
+	"math"
 	"testing"
 )
 
-func TestGreeting(t *testing.T) {
-	got := greeting("Code.education Rocks!")
-	want := "<b>Code.education Rocks!</b>"
+func TestSqrt(t *testing.T) {
+	result := math.Sqrt(64)
+	var response float64 = 8
 
-	if got != want {
-		t.Errorf("greeting() \n got: %v \n want: %v", got, want)
+	if result != response {
+		t.Errorf("Resultado Inválido! retornou %f, requerido %f", result, response)
 	}
 }
