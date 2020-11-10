@@ -16,4 +16,9 @@ spec:
             - name: claytongf/codeeducation
               image: claytongf/codeeducation:latest
               ports:
-              - containerPort: 80
+                - containerPort: 80
+              resources:
+                requests:
+                    cpu: "50m"
+                limits:
+                    cpu: "100m"
